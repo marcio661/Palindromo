@@ -1,0 +1,89 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct Stack {
+    int top;
+    unsigned capacity;
+    int* array;
+};
+
+struct Stack* createStack(unsigned capacity)
+{
+    struct Stack* stack = (struct Stack*)malloc(sizeof(struct Stack));
+    stack->capacity = capacity;
+    stack->top = -1;
+    stack->array = (int*)malloc(stack->capacity * sizeof(int));
+    return stack;
+}
+
+int IsFull(struct Stack* stack)//funcoes da pilha
+{
+    return stack->top == stack->capacity - 1;
+}
+
+
+int IsEmpty(struct Stack* stack)
+{
+    return stack->top == -1;
+}
+
+{
+    if (IsFull(stack))
+        return;
+    stack->array[++stack->top] = item;
+}
+
+int Pop(struct Stack* stack)
+{
+    if (IsEmpty(stack))
+        return INT_MIN;
+    return stack->array[stack->top--];
+}
+
+int Top(struct Stack* stack)
+{
+	return stack->array[stack->top];
+}
+
+int main()
+{
+	struct Stack* stack = createStack(200);
+	int i,valor,palindromo = 1,metade=0,apg=0,tamfrase,ajust = 0;
+	char frase[20];
+	
+	
+	printf("Digite uma frase.\n");
+	gets(frase);
+	
+	tamfrase = strlen(frase);
+	
+	if(tamfrase%2==1)
+		ajust = 1;
+	
+	
+	for(i=0;i < (tamfrase-ajust)/2; i++)
+	{
+		Push(stack,(int)frase[i]);
+		metade++;
+	}
+	metade += ajust;
+	 
+	while(metade < tamfrase && palindromo)
+	{
+		apg = Pop(stack);
+		
+		if((int)frase[metade] != apg)
+		{
+			printf("Nao eh palindromo");
+			palindromo = 0;
+		}
+		
+		metade++;
+	}
+	
+	if(palindromo)
+		printf("Eh palindromo\n");
+return 0;
+
+}
