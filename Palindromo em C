@@ -1,4 +1,7 @@
 //Autor: Márcio Luis Cipriano.
+//Matrícula:202001742
+//Professora: Franciny
+//Matéria: Ed1.
 #include <stdio.h>
 #include <string.h>
 
@@ -15,7 +18,7 @@ int main() {
          palavra[j++] = tolower(palavra[i]);
       }
    }
-   palavra[j] = '\0'; // finaliza a string
+   palavra[j] = '\0'; 
    
  
    for(i = 0, j = strlen(palavra) - 1; i < j; i++, j--) {
