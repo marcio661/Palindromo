@@ -1,7 +1,4 @@
-//Autor: Márcio Luis Cipriano.
-//Matrícula:202001742
-//Professora: Franciny
-//Matéria: Ed1.
+
 #include <stdio.h>
 #include <string.h>
 
@@ -9,6 +6,7 @@ int main() {
    char palavra[100];
    int i, j, palindromo = 1;
    
+   printf("Autor: Márcio Luis Cipriano. Matrícula:202001742. Professora: Franciny. Matéria: Ed1.");
    printf("Digite uma palavra ou frase: ");
    scanf("%[^\n]s", palavra);
    
